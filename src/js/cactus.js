@@ -1,6 +1,7 @@
 const containerGame = document.querySelector('.game-container');
 
 function cactus(){
+    let random = Math.floor(Math.random()*(Math.floor(6000)-Math.ceil(1000) )+Math.ceil(1000));
 
     const cactusTypes= {
         big:'url(./src/image/cactusBig0000.png) no-repeat 0px 45px',
@@ -17,7 +18,12 @@ function cactus(){
         criaCactus.remove()  
     }, 7600);
     
-    
+    setTimeout(()=>{ 
+        cactus()
+         
+        console.log(random)
+        
+    },random )   
     
     /*  if(criaCactus.getBoundingClientRect().x <= 100 ){
         console.log('teste')
@@ -39,10 +45,5 @@ setInterval(()=>{
 },10 )   
 
 
-setInterval(()=>{ 
-    cactus()
-     
-    console.log(random)
-    
-},random )   
+
 
