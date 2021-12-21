@@ -1,0 +1,62 @@
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+body .game-container {
+  width: 100vw;
+  height: 380px;
+  position: relative;
+  border-top: 5px solid #8ab4f8;
+  border-bottom: 5px solid #8ab4f8;
+}
+body .game-container .background {
+  width: 100vw;
+  height: 200px;
+  position: absolute;
+  background: url(../image/background.png) repeat-x;
+  bottom: 0;
+  animation: slideright 2000s infinite linear;
+  margin-bottom: 2rem;
+}
+@keyframes slideright {
+  from {
+    background-position: 40000%;
+  }
+  to {
+    background-position: 0;
+  }
+}
+body .game-container .dino-run1 {
+  width: 110px;
+  height: 110px;
+  background: url(../image/dinorun0000.png) no-repeat;
+  position: absolute;
+  bottom: 0;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+}
+body .game-container .dino-jump {
+  background: url(../image/dinoJump0000.png) no-repeat;
+}
+body .game-container .dino-run2 {
+  background: url(../image/dinorun0001.png) no-repeat;
+}
+body .game-container .cactus {
+  width: 110px;
+  height: 200px;
+  position: absolute;
+  bottom: 0;
+}
+@keyframes slidecactus {
+  from {
+    right: -125px;
+  }
+  to {
+    right: 2000px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
