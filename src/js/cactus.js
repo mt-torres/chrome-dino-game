@@ -1,3 +1,5 @@
+import { isHigher } from "./dino.js";
+
 const containerGame = document.querySelector(".game-container");
 let isColliding = false;
 
@@ -21,49 +23,31 @@ function cactus() {
 			]
 		];
 	containerGame.appendChild(criaCactus);
-	//criaCactus.style.animation = 'slidecactus 7.6s linear';
-	const animationKeyFrame = new KeyframeEffect(
-		criaCactus,
-		[{
-				right: '-125px'
-			},
-			{
-				right: '2000px'
+	let position = 1950;
+	setInterval(()=>{
+		position -=8 ; 
+		criaCactus.style.left = position + 'px'
+		if(position <=110 && position >=32 ){
+			isColliding = true;
+			if(isColliding == true && isHigher == false){
+				console.log("voce morreu")
 			}
-		], {
-			duration: 4500,
-			easing: 'linear'
-		}
-	)
-
-	const animation = new Animation(animationKeyFrame, document.timeline);
-
-	animation.play()
-
-	const observer = new MutationObserver(function (mutations) {
-		mutations.forEach(function (mutationsRecord){
-			console.log('callback that runs when observer is triggered');
 			
-		})
-	})
+		}else{
+			isColliding = false;
+			
+		}
+	},10  )
 
-	observer.observe(criaCactus, {
-		attributes: true,
-		/* characterData: true,
-		childList: true,
-		subtree: true,
-		attributeOldValue: true,
-		characterDataOldValue: true, */
-		attributeFilter:['style.animation']
-	});
-
-	/* setTimeout(() => {
+	setTimeout(() => {
 		criaCactus.remove();
-	}, 4500);
+	}, 4400); 
 
 	setTimeout(() => {
 		cactus();
-	}, random); */
+	}, random);
 }
+
+
 
 cactus();

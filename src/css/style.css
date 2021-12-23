@@ -49,14 +49,8 @@ body .game-container .cactus {
   height: 83px;
   position: absolute;
   bottom: 30px;
-}
-@keyframes slidecactus {
-  from {
-    right: -125px;
-  }
-  to {
-    right: 2000px;
-  }
+  left: 1950px;
+  transition: all linear;
 }
 
 /*# sourceMappingURL=style.css.map */
