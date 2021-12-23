@@ -45,10 +45,10 @@ body .game-container .dino-run2 {
   background: url(../image/dinorun0001.png) no-repeat;
 }
 body .game-container .cactus {
-  width: 110px;
-  height: 200px;
+  width: 126px;
+  height: 83px;
   position: absolute;
-  bottom: 0;
+  bottom: 30px;
 }
 @keyframes slidecactus {
   from {

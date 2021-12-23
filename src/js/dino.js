@@ -1,5 +1,7 @@
 const dino = document.querySelector(".dino-run1");
+
 let isJumping = false;
+let isHigher = false
 
 function handleKeyEvent(event) {
    if (event.key === " " && !isJumping) {
@@ -8,14 +10,21 @@ function handleKeyEvent(event) {
 }
 
 function jump() {
+   let cactusHeight = 83;
    isJumping = true;
    let position = 0;
    let up = setInterval(() => {
+      if (position > cactusHeight -36 ) {
+         isHigher = true
+         console.log('ANTES ' + isHigher)
+      }
       if (position >= 200 ) {
          clearInterval(up);
          let down = setInterval(() => {
             if (position <= 15) {
                isJumping = false;
+               isHigher = false
+               console.log('DEPOIS ' + isHigher)
                clearInterval(down);
             } else {
                position -= 20;
@@ -41,5 +50,5 @@ function dinoRun(){
       }
    },80)
 }
-dinoRun()
+ dinoRun()
 document.addEventListener("keydown", handleKeyEvent);
