@@ -4,6 +4,7 @@ body {
   height: 100vh;
   display: flex;
   align-items: center;
+  background-color: #fafafa;
 }
 body .game-container {
   width: 100vw;
@@ -18,7 +19,6 @@ body .game-container .background {
   position: absolute;
   background: url(../image/background.png) repeat-x;
   bottom: 0;
-  animation: slideright 2000s infinite linear;
   margin-bottom: 2rem;
 }
 @keyframes slideright {
@@ -28,6 +28,9 @@ body .game-container .background {
   to {
     background-position: 0;
   }
+}
+body .game-container .animacao {
+  animation: slideright 715s infinite linear;
 }
 body .game-container .dino-run1 {
   width: 110px;
@@ -49,8 +52,24 @@ body .game-container .cactus {
   height: 83px;
   position: absolute;
   bottom: 30px;
-  left: 1950px;
-  transition: all linear;
+}
+body .game-container .cactus1 {
+  width: 126px;
+  height: 83px;
+  position: absolute;
+  bottom: 30px;
+  right: -125px;
+}
+body .game-container .cactus-run {
+  animation: slider-cactus 4500ms infinite linear;
+}
+@keyframes slider-cactus {
+  from {
+    right: -125px;
+  }
+  to {
+    right: 2000px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

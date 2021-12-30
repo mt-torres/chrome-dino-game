@@ -1,7 +1,7 @@
 const dino = document.querySelector(".dino-run1");
+export let isHigher = false
 
 let isJumping = false;
-export let isHigher = false
 
 function handleKeyEvent(event) {
    if (event.key === " " && !isJumping) {
@@ -16,7 +16,6 @@ function jump() {
    let up = setInterval(() => {
       if (position > cactusHeight -36 ) {
          isHigher = true
-        
       }
       if (position >= 200 ) {
          clearInterval(up);
@@ -37,17 +36,20 @@ function jump() {
    }, 25);
 }
 
-function dinoRun(){  
-   setInterval(()=>{
-      if(isJumping){
-         dino.classList.remove('dino-run2')
-         dino.classList.add('dino-jump') 
-         
-      }else{
-         dino.classList.remove('dino-jump')
-         dino.classList.toggle('dino-run2')
-      }
-   },80)
-}
- dinoRun()
+
+ export let movimento = setInterval(()=>{
+         if(isJumping){
+            dino.classList.remove('dino-run2')
+            dino.classList.add('dino-jump') 
+            
+         }else{
+            dino.classList.remove('dino-jump')
+            dino.classList.toggle('dino-run2')
+         }
+      },80)
+       
+    
+
+
+ 
 document.addEventListener("keydown", handleKeyEvent);
