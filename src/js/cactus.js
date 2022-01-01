@@ -1,13 +1,18 @@
-import { isHigher, movimento } from "./dino.js";
+import {
+	dino,
+	isHigher,
+	movimento,
+	isJumping
+} from "./dino.js";
 
 const containerGame = document.querySelector(".game-container");
 const chao = document.querySelector(".background");
+const gameOver = document.querySelector('.game-over');
+const botao = document.querySelector('.game-over__btn');
 
 let isColliding = false;
 
 function cactus() {
-
-	console.log('inicio da função '+isColliding)
 
 	let random = Math.floor(
 		Math.random() * (Math.floor(5000) - Math.ceil(1000)) + Math.ceil(1000)
@@ -31,68 +36,82 @@ function cactus() {
 		];
 	containerGame.appendChild(criaCactus);
 
-	
-	
 	let removeCactus = setTimeout(() => {
-		if(!isColliding){ 
-			
-		criaCactus.remove();
-		}else{
-			clearTimeout(puxaCactus)
+		if (!isColliding) {
+
+			criaCactus.remove();
+		} else {
+			clearTimeout(removeCactus);
 		}
-		
-	},4500);
-	
+
+	}, 4500);
+
 	let puxaCactus = setTimeout(() => {
-		if(!isColliding){
-			
+		if (!isColliding) {
 			cactus();
-			console.log("fui  acionado");
-		}else{
-			clearTimeout(puxaCactus)
 			
+		} else {
+			clearTimeout(puxaCactus);
+  
 		}
 	}, random);
-	
-	testaColisao()
 
-	function testaColisao(){
+	testaColisao();
+
+	function testaColisao() {
+		const cactusAll = document.querySelectorAll(".cactus")
 
 		const colisao = setInterval(() => {
-			const cactusAll = document.querySelectorAll(".cactus")
 			cactusAll.forEach((item) => {
-				const posicaoCactus = (parseInt(window.getComputedStyle(item).getPropertyValue('left')))
+				const posicaoCactus = (parseInt(window.getComputedStyle(item).getPropertyValue('left')));
 
 				if (posicaoCactus <= 110 && posicaoCactus >= 32 && !isHigher) {
-					
-					console.log('vc morreu')
-					paraCactus(cactusAll)
-					chao.classList.remove('animacao')
-					clearInterval(movimento)
+					movimento.pause()
+					paraCactus(cactusAll);
+					chao.classList.remove('animacao');
+					dino.classList.add('dino-dead');
+					gameOver.classList.add('game-over--show')
+					clearTimeout(puxaCactus);
+					clearTimeout(removeCactus);
+					clearInterval(colisao)
 					isColliding = true;
-					console.log("iscolliding " +isColliding)
-					return isColliding
-	
+
 				}
 
 			})
-	
-			
+
 		}, 10)
-		console.log("iscolliding " +isColliding)
-		return isColliding
+
 	}
-	
-	function paraCactus(elementos){	
-		elementos.forEach((item)=>{
-			item.style.right = window.getComputedStyle(item).getPropertyValue('right') 
-			item.classList.remove('cactus-run')
-			item.classList.remove('cactus')
-		
+
+	function paraCactus(elementos) {
+		elementos.forEach((item) => {
+			item.style.right = window.getComputedStyle(item).getPropertyValue('right');
+			item.classList.remove('cactus-run');
+			item.classList.remove('cactus');
+
 		})
-		
+
 	}
-		
+
 }
 
+
 cactus();
+movimento.play()
+
+
+
+botao.addEventListener('click', () => {
+	const cactusAll = document.querySelectorAll(".cactus1")
+	cactusAll.forEach((item) => {
+		item.remove()
+	})
+	gameOver.classList.remove('game-over--show')
+	dino.classList.remove('dino-dead')
+	chao.classList.add('animacao');
+	movimento.play()
+	isColliding = false;
+	cactus();
+
+})

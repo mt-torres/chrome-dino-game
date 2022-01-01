@@ -5,6 +5,7 @@ body {
   display: flex;
   align-items: center;
   background-color: #fafafa;
+  position: relative;
 }
 body .game-container {
   width: 100vw;
@@ -30,7 +31,7 @@ body .game-container .background {
   }
 }
 body .game-container .animacao {
-  animation: slideright 715s infinite linear;
+  animation: slideright 1200s infinite linear;
 }
 body .game-container .dino-run1 {
   width: 110px;
@@ -46,6 +47,9 @@ body .game-container .dino-jump {
 }
 body .game-container .dino-run2 {
   background: url(../image/dinorun0001.png) no-repeat;
+}
+body .game-container .dino-dead {
+  background: url(../image/dinoDead0000.png) no-repeat;
 }
 body .game-container .cactus {
   width: 126px;
@@ -70,6 +74,30 @@ body .game-container .cactus-run {
   to {
     right: 2000px;
   }
+}
+body .game-over {
+  display: none;
+  position: absolute;
+  left: 42.5%;
+  font-family: "Press Start 2P", cursive;
+}
+body .game-over--show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body .game-over__btn {
+  font-family: inherit;
+  width: 200px;
+  height: 50px;
+  background-color: #fafafa;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  border: 1px solid black;
+}
+body .game-over__btn:hover {
+  background-color: #524f4f;
+  color: #fafafa;
 }
 
 /*# sourceMappingURL=style.css.map */
