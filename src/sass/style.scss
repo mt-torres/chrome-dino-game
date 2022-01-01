@@ -55,7 +55,7 @@ body {
         }
 
         .dino-jump {
-            background: url(../image/dinoJump0000.png) no-repeat;
+            background: url(../image/dinoJump0000.png) no-repeat ;
         }
 
         .dino-run2 {
@@ -70,16 +70,17 @@ body {
         .cactus {
          
             width: 126px;
-            height: 83px;
+            height: 120px;
             position: absolute;
             bottom: 30px;
+
             
         }
         
         .cactus1 {
          
             width: 126px;
-            height: 83px;
+            height: 120px;
             position: absolute;
             bottom: 30px;
             right: -125px;

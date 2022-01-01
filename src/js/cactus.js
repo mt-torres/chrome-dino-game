@@ -19,9 +19,9 @@ function cactus() {
 	);
 
 	const cactusTypes = {
-		big: "url(./src/image/cactusBig0000.png) no-repeat ",
-		small: "url(./src/image/cactusSmall0000.png) no-repeat",
-		smallMany: "url(./src/image/cactusSmallMany0000.png) no-repeat",
+		big: "url(./src/image/cactusBig0000.png)no-repeat ",
+		small: "url(./src/image/cactusSmall0000.png)0 37px no-repeat",
+		smallMany: "url(./src/image/cactusSmallMany0000.png) 0 37px no-repeat",
 	};
 
 	const criaCactus = document.createElement("div");

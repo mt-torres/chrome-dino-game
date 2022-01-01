@@ -53,13 +53,13 @@ body .game-container .dino-dead {
 }
 body .game-container .cactus {
   width: 126px;
-  height: 83px;
+  height: 120px;
   position: absolute;
   bottom: 30px;
 }
 body .game-container .cactus1 {
   width: 126px;
-  height: 83px;
+  height: 120px;
   position: absolute;
   bottom: 30px;
   right: -125px;
