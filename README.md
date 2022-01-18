@@ -22,4 +22,4 @@ Improve my css animations, key frames and javaScript knowledge.
    git clone https://github.com/mt-torres/chrome-dino-game
    ```
 
-2. Go to project directory and open index.html file
+2. Project should be opened through a local sever. I recommend using the Live Server extension.
